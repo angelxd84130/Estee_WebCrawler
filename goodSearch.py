@@ -108,4 +108,4 @@ def getGoodDesc(goodID) -> json:
     #print('產品規格:')
     #print('產品圖片路徑')
 
-print(getGoodDesc(goodID=9486768))
+#print(getGoodDesc(goodID=9486768))

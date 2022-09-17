@@ -1,38 +1,45 @@
 import json
 import time
-
+import schedule
 import textSearch as t
 import goodSearch as g
+from datetime import datetime
+day = 1
+fileName = "data.json"
 
 def dailyLoad():
     goodList = t.getGoodId()
+    global fileName
+    print("update time: ", datetime.fromtimestamp(g.getTimeStamp()))
 
     try:
-        with open("output.json", 'r') as f:
-            jsonList = json.loads(f.read())
-            print(len(jsonList))
+         with open(fileName, 'r+', encoding='utf8') as f:
+            jsonList = json.load(f)
             f.close()
     except:
         jsonList = []
 
-    with open("output.json", "w+", encoding='utf8') as f:
-
+    with open(fileName, "w+", encoding='utf8') as f:
         for id in goodList:
-            print(id)
             goodSet = g.getGoodDesc(int(id))
             jsonList.append(goodSet)
         print("len:", len(jsonList))
         f.write(json.dumps(jsonList, indent=4, ensure_ascii=False))
         f.close()
 
-
+def day_update():
+    global day
+    print("finish:", day)
+    day += 1
 
 if __name__ == '__main__':
-    i = 1
+    schedule.every().day.at("12:00").do(dailyLoad)
+    schedule.every().day.at("15:00").do(dailyLoad)
+    schedule.every().day.at("18:00").do(dailyLoad)
     while True:
-        dailyLoad()
-        time.sleep(60*30)
-        print("finish:", i)
+        schedule.run_pending()
+        time.sleep(1)
+
 
 
 
