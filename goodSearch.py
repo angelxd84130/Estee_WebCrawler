@@ -103,9 +103,5 @@ def getGoodDesc(goodID) -> json:
     except:
         pass
     return Dec
-    #Dec['容量']
-    #print('產品特色:')
-    #print('產品規格:')
-    #print('產品圖片路徑')
 
 #print(getGoodDesc(goodID=9486768))
