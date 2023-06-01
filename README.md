@@ -58,7 +58,7 @@ The crawler is automatically driven three times a day, and the crawled target va
 
 Here's why:
 * Find the lowest price of each product.
-* Search for the maximize discount on products.
+* Search for the maximum discount on products.
 * Rank the saving prices to help visualized analysis.
 
 ### Schedule Crawlers  
@@ -88,49 +88,39 @@ Mainly analyze daily product price fluctuations and discount rankings.
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Start with a python file with any machine learning model ex.NaiveBayes.py  
-Download code and repalce the api_key to your own.
+Start from main.py file. After setting out scheduled times, the process will be called automatically.
 
 ### Prerequisites
 
 
-1. Get a free API Key at [NewsAPI](https://newsapi.org/docs/client-libraries/python)
-2. Replace api_key to your own.
-   ```sh
-   newsapi = NewsApiClient(api_key=' your api key here ')
-   ```
-3. Run the python file
-   
-4. Check the plot to see predict results
+1. import required python packages.
+2. Checkout the product category URL.
+   - open the webpage in inspect mode.
+   - search the network connections.
+   - click any product, and check which API response product information.  
+3. Rename the JSON file's name, which is used on storage data.  
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use the plots to check result.  
+Check the rank result.  
 ### Data 
-Articles: {'science': 61, 'general': 226, 'health': 133, 'business': 294, 'entertainment': 270, 'sports': 341}
-![DataAccumulation][product-screenshot0]  
-![Data][product-screenshot1]  
+Target shopping mall: Momoshop  
+Target brand: Estee  
+Target website: [Momoshop_Estee](https://www.momoshop.com.tw/search/searchShop.jsp?keyword=%E9%9B%85%E8%A9%A9%E8%98%AD%E9%BB%9B&searchType=1&curPage=1&_isFuzzy=0&showType=chessboardType)  
+![Momoshop_Estee][product-screenshot0]  
+
  
-### Accuracy
-- Naive Bayes: 0.539156
-- SVM: 0.608433
-- Logistic Regression: 0.551204  
-![SupervisedLearning][product-screenshot2]  
+### Daily Analysis
+Rank the maximum discount of products.    
+![Daily_discount_rank][product-screenshot1]   
 
-### confused matrix 
-![NaiveBayes][product-screenshot3]  
+Check the weekly price fluctuations.  
+![Weekly_price_change][product-screenshot2]   
+ 
 
-or copy an article content and apply it on the model to make predition.
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
 
 
 <!-- CONTACT -->
@@ -144,11 +134,6 @@ email: angelxd84130@gmail.com
 ## Acknowledgements
 * [Multi-Class Text Classification with Scikit-Learn](https://towardsdatascience.com/multi-class-text-classification-with-scikit-learn-12f1e60e0a9f)
 * [Text Classification Using Naive Bayes: Theory & A Working Example](https://towardsdatascience.com/text-classification-using-naive-bayes-theory-a-working-example-2ef4b7eb7d5a)
-
-
-
-
-
 
 
 
@@ -166,4 +151,6 @@ email: angelxd84130@gmail.com
 [license-url]: https://github.com/angelxd84130/Estee_WebCrawler/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/yu-chieh-wang/
-[product-screenshot]: images/screenshot.png
+[product-screenshot0]: Estee_WebCrawler.png
+[product-screenshot1]: Estee_daily_discount_rank.png
+[product-screenshot2]: Estee_weekly_price_change.png
